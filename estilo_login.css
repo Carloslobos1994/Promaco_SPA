@@ -1,0 +1,76 @@
+/* =====================================================
+   1. ESTILOS GENERALES Y FONDO DE CONTENIDO INDUSTRIAL
+   ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    /* Fondo con textura sutil y degradado de alta gama tipo constructora/ingeniería */
+    background: linear-gradient(135deg, #0d131f 0%, #161f30 50%, #090e17 100%);
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(135deg, #0d131f 0%, #161f30 50%, #090e17 100%);
+    background-size: 20px 20px, 100% 100%;
+    background-attachment: fixed;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =====================================================
+   2. NAVBAR EXCLUSIVO CON TEXTURA DE LADRILLOS 
+   ===================================================== */
+.navbar {
+    border-bottom: 3px solid #0f172a;
+    background-color: #111827;
+}
+
+.navbar-ladrillos {
+    background-image: url('img/ladrillos.jpg') !important;
+    background-repeat: repeat !important;
+    background-size: 280px auto !important;
+    background-position: center !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+/* Logotipo totalmente transparente sin cuadrados blancos de fondo */
+.navbar-brand-logo img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    background-color: transparent !important;
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* =====================================================
+   3. TARJETA DE CONTENIDO / LOGIN INDUSTRIAL
+   ===================================================== */
+.card, .login-card {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Footer corporativo industrial */
+footer {
+    background-color: #080c14 !important;
+    border-top: 1px solid #1e293b;
+    color: #94a3b8;
+    margin-top: auto;
+}

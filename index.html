@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promaco SpA - Acceso al Sistema</title>
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo_login.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR SUPERIOR CON TEXTURA DE LADRILLOS Y LOGO -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ladrillos py-3">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand m-0 p-0 navbar-brand-logo" href="index.html">
+                <img src="img/promaco_logo_transparente.png" alt="Logo Promaco SpA">
+            </a>
+            <div class="ms-auto d-none d-sm-block">
+                <span class="text-light small fw-semibold tracking-wide">Plataforma de Gestión Industrial y Tienda</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO CENTRAL: FONDO DE ALTA PRESENCIA -->
+    <main class="container d-flex flex-column justify-content-center align-items-center my-auto py-5">
+        <div class="card p-4 p-md-5 border-0 text-dark" style="width: 100%; max-width: 420px;">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-dark">Iniciar Sesión</h2>
+                <p class="text-muted small">Gestión y Proyectos de Construcción</p>
+            </div>
+
+            <!-- Formulario de Inicio de Sesión -->
+            <form id="form-login">
+                <div class="mb-3">
+                    <label for="email" class="form-label small fw-bold text-secondary">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="tucorreo@promaco.cl" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label small fw-bold text-secondary">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 py-2 fw-bold">Ingresar al Sistema</button>
+            </form>
+
+            <!-- Acceso exclusivo para trabajadores -->
+            <div class="text-center mt-4 pt-3 border-top">
+                <a href="#" id="btn-modo-trabajador" class="text-muted small text-decoration-none fw-semibold">
+                    🔒 Acceso exclusivo para trabajadores
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0 small">🏗️ Constructora Promaco SpA - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de control de roles y accesos -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const formLogin = document.getElementById("form-login");
+            const btnModoTrabajador = document.getElementById("btn-modo-trabajador");
+
+            const adminsPermitidos = [
+                "camilo@promaco.com",
+                "mathias@promaco.com",
+                "carlos@promaco.com",
+                "mario@promaco.com"
+            ];
+
+            if (btnModoTrabajador) {
+                btnModoTrabajador.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const correoTrabajador = prompt("Ingrese su correo corporativo de trabajador (@promaco.com):");
+                    if (correoTrabajador) {
+                        const emailLimpio = correoTrabajador.trim().toLowerCase();
+                        if (adminsPermitidos.includes(emailLimpio)) {
+                            localStorage.setItem('promaco_usuario_actual', emailLimpio);
+                            alert(`¡Credencial reconocida (${emailLimpio})! Redirigiendo al panel...`);
+                            window.location.href = "admin/dashboard.html";
+                        } else {
+                            alert("❌ Este correo no cuenta con privilegios de trabajador.");
+                        }
+                    }
+                });
+            }
+
+            if (formLogin) {
+                formLogin.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const emailInput = document.getElementById("email").value.trim().toLowerCase();
+                    localStorage.setItem('promaco_usuario_actual', emailInput);
+
+                    if (adminsPermitidos.includes(emailInput)) {
+                        alert(`¡Bienvenido, trabajador (${emailInput})! Redirigiendo a Administración...`);
+                        window.location.href = "admin/dashboard.html";
+                    } else {
+                        alert(`¡Inicio de sesión exitoso! Bienvenido a la tienda Promaco SpA.`);
+                        window.location.href = "tienda/home.html";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración general y metadatos del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promaco SpA - Catálogo de Productos</title>
+    
+    <!-- Enlace a los estilos de Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos personalizada del sistema -->
+    <link rel="stylesheet" href="../estilo_login.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (NAVBAR) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ladrillos py-3">
+        <div class="container-fluid px-4">
+            
+            <!-- Logotipo corporativo con enlace al Home de la tienda -->
+            <a class="navbar-brand fw-bold text-white m-0 navbar-brand-logo" href="home.html">
+                <img src="../img/promaco_logo_transparente.png" alt="Logo Promaco SpA">
+                <span>Promaco SpA</span>
+            </a>
+            
+            <!-- Botón de menú colapsable para dispositivos móviles -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavPrivado">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menú de navegación principal -->
+            <div class="collapse navbar-collapse" id="navbarNavPrivado">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+                    <li class="nav-item"><a class="nav-link text-light" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-light active" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="noticias.html">Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning fw-bold" href="carrito.html">🛒 Carrito</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="../index.html" class="btn btn-danger btn-sm px-3">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: CATÁLOGO DE PRODUCTOS INDUSTRIALES -->
+    <main class="container py-5 my-auto">
+        <h1 class="text-center mb-5 fw-bold text-white">Catálogo de Productos Industriales</h1>
+        
+        <!-- Cuadrícula (Grid) de productos -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            
+            <!-- 1. Cemento Polpaico -->
+            <div class="col">
+                <div class="card h-100 p-3">
+                    <img src="../img/cemento.jpg" class="card-img-top rounded object-fit-cover" style="height: 200px;" alt="Cemento Polpaico">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 fw-bold text-dark">Cemento Polpaico Especial 25kg</h3>
+                        <p class="price fs-5 fw-bold text-primary mb-3">$5,990</p>
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="detalle_producto.html?producto=cemento" class="btn btn-outline-dark btn-sm">Ver Detalle</a>
+                            <button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Cemento Polpaico Especial 25kg', 5990)">Agregar al Carrito 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Pallet 72 Sacos Cemento -->
+            <div class="col">
+                <div class="card h-100 p-3">
+                    <img src="../img/cementos_72.jpg" class="card-img-top rounded object-fit-cover" style="height: 200px;" alt="Pallet Cemento">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 fw-bold text-dark">Pallet 72 Sacos Cemento Cbb</h3>
+                        <p class="price fs-5 fw-bold text-primary mb-3">$399,000</p>
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="detalle_producto.html?producto=pallet_cemento" class="btn btn-outline-dark btn-sm">Ver Detalle</a>
+                            <button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Pallet 72 Sacos Cemento Cbb', 399000)">Agregar al Carrito 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Taladro Inalámbrico -->
+            <div class="col">
+                <div class="card h-100 p-3">
+                    <img src="../img/taladro_inalambrico.jpg" class="card-img-top rounded object-fit-cover" style="height: 200px;" alt="Taladro">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 fw-bold text-dark">Taladro Percutor Inalámbrico 20V</h3>
+                        <p class="price fs-5 fw-bold text-primary mb-3">$129,990</p>
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="detalle_producto.html?producto=taladro" class="btn btn-outline-dark btn-sm">Ver Detalle</a>
+                            <button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Taladro Percutor Inalámbrico 20V', 129990)">Agregar al Carrito 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Martillo Demoledor Cango -->
+            <div class="col">
+                <div class="card h-100 p-3">
+                    <img src="../img/cango.jpg" class="card-img-top rounded object-fit-cover" style="height: 200px;" alt="Demoledor Cango">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 fw-bold text-dark">Martillo Demoledor Cango Total</h3>
+                        <p class="price fs-5 fw-bold text-primary mb-3">$189,900</p>
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="detalle_producto.html?producto=demoledor" class="btn btn-outline-dark btn-sm">Ver Detalle</a>
+                            <button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Martillo Demoledor Cango Total', 189900)">Agregar al Carrito 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Aplanadora -->
+            <div class="col">
+                <div class="card h-100 p-3">
+                    <img src="../img/aplanadora.jpg" class="card-img-top rounded object-fit-cover" style="height: 200px;" alt="Aplanadora">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 fw-bold text-dark">Plancha Compactadora Aplanadora</h3>
+                        <p class="price fs-5 fw-bold text-primary mb-3">$850,000</p>
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="detalle_producto.html?producto=aplanadora" class="btn btn-outline-dark btn-sm">Ver Detalle</a>
+                            <button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Plancha Compactadora Aplanadora', 850000)">Agregar al Carrito 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Clavos Corrientes (Enlace corregido a 'clavos') -->
+            <div class="col">
+                <div class="card h-100 p-3">
+                    <img src="../img/clavos.jpg" class="card-img-top rounded object-fit-cover" style="height: 200px;" alt="Clavos">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 fw-bold text-dark">Clavos Corrientes 2" (1/2 kg)</h3>
+                        <p class="price fs-5 fw-bold text-primary mb-3">$2,490</p>
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="detalle_producto.html?producto=clavos" class="btn btn-outline-dark btn-sm">Ver Detalle</a>
+                            <button class="btn btn-dark btn-sm" onclick="agregarAlCarrito('Clavos Corrientes 2 pulgadas', 2490)">Agregar al Carrito 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0 small">🏗️ Constructora Promaco SpA - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y lógica de scripts generales -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/carrito.js"></script>
+</body>
+</html>

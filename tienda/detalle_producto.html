@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración general y metadatos del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promaco SpA - Ficha Técnica</title>
+    
+    <!-- Enlace a los estilos de Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="stylesheet" href="../estilo_login.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (NAVBAR) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ladrillos py-3">
+        <div class="container-fluid px-4">
+            
+            <!-- Logotipo corporativo con enlace al Home -->
+            <a class="navbar-brand fw-bold text-white m-0 navbar-brand-logo" href="home.html">
+                <img src="../img/promaco_logo_transparente.png" alt="Logo Promaco">
+                <span>Promaco SpA</span>
+            </a>
+            
+            <!-- Menú de navegación principal -->
+            <div class="collapse navbar-collapse" id="navbarNavPrivado">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+                    <li class="nav-item"><a class="nav-link text-light" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-light active" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="noticias.html">Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning fw-bold" href="carrito.html">🛒 Carrito</a></li>
+                    <li class="nav-item ms-lg-3"><a href="../index.html" class="btn btn-danger btn-sm px-3">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: FICHA TÉCNICA DEL PRODUCTO -->
+    <main class="container py-5 my-auto">
+        <div class="card p-4 p-md-5 text-dark">
+            <div class="row g-5 align-items-center">
+                
+                <!-- Columna de la Imagen del Producto -->
+                <div class="col-md-5 text-center">
+                    <img id="img-producto" src="../img/cemento.jpg" class="img-fluid rounded shadow-sm object-fit-cover" style="max-height: 350px;" alt="Detalle Producto">
+                </div>
+                
+                <!-- Columna de Información, Precios y Acciones -->
+                <div class="col-md-7">
+                    <span class="badge bg-secondary mb-2">Ficha Técnica Oficial</span>
+                    <h1 id="nombre-producto" class="h2 fw-bold text-dark mb-3">Cargando producto...</h1>
+                    <p id="desc-producto" class="text-muted mb-4">Cargando especificaciones técnicas...</p>
+                    
+                    <h3 id="precio-producto" class="text-primary fw-bold mb-4">$0 <span class="fs-6 text-muted fw-normal">c/u (IVA incluido)</span></h3>
+
+                    <!-- Alerta de promoción para constructores -->
+                    <div class="alert alert-warning border-0 shadow-sm mb-4">
+                        🔥 <strong>¡Promoción Constructor!</strong> Lleva <strong>50 unidades o más</strong> y obtén un descuento automático en tu carrito.
+                    </div>
+
+                    <!-- Botones de navegación y acción de compra -->
+                    <div class="d-flex gap-3">
+                        <a href="catalogo.html" class="btn btn-outline-dark px-4">Volver al Catálogo</a>
+                        <button id="btn-agregar-detalle" class="btn btn-dark px-4">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0 small">🏗️ Constructora Promaco SpA - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y lógica global del sistema -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/carrito.js"></script>
+    
+    <!-- SCRIPT DE CARGA DINÁMICA DE DATOS SEGÚN URL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Base de datos local con los detalles de cada producto
+            const baseDatosProductos = {
+                "cemento": {
+                    nombre: "Cemento Polpaico Especial 25kg",
+                    precio: 5990,
+                    imagen: "../img/cemento.jpg",
+                    descripcion: "Cemento de albañilería y uso general de alta resistencia inicial, diseñado bajo estrictos estándares industriales."
+                },
+                "pallet_cemento": {
+                    nombre: "Pallet 72 Sacos Cemento Cbb",
+                    precio: 399000,
+                    imagen: "../img/cementos_72.jpg",
+                    descripcion: "Pallet completo industrial con 72 sacos de cemento de alto rendimiento para obras de gran envergadura."
+                },
+                "taladro": {
+                    nombre: "Taladro Percutor Inalámbrico 20V",
+                    precio: 129990,
+                    imagen: "../img/taladro_inalambrico.jpg",
+                    descripcion: "Taladro percutor a batería de ion de litio de 20V, ideal para faenas en concreto, madera y metal."
+                },
+                "demoledor": {
+                    nombre: "Martillo Demoledor Cango Total",
+                    precio: 189900,
+                    imagen: "../img/cango.jpg",
+                    descripcion: "Martillo demoledor de alto impacto para demolición de losas y pavimentos pesados."
+                },
+                "aplanadora": {
+                    nombre: "Plancha Compactadora Aplanadora",
+                    precio: 850000,
+                    imagen: "../img/aplanadora.jpg",
+                    descripcion: "Plancha compactadora vibratoria ideal para la estabilización de suelos y bases de pavimentos."
+                },
+                "clavos": {
+                    nombre: "Clavos Corrientes 2 pulgadas",
+                    precio: 2490,
+                    imagen: "../img/clavos.jpg",
+                    descripcion: "Bolsa de 1/2 kg de clavos corrientes de acero de alta resistencia para carpintería de obra gruesa."
+                }
+            };
+
+            // Captura el parámetro de la URL para saber qué producto mostrar
+            const params = new URLSearchParams(window.location.search);
+            const productoKey = params.get("producto") || "cemento";
+            const prodData = baseDatosProductos[productoKey] || baseDatosProductos["cemento"];
+
+            // Rellena los elementos HTML con la información del producto seleccionado
+            document.getElementById("nombre-producto").textContent = prodData.nombre;
+            document.getElementById("desc-producto").textContent = prodData.descripcion;
+            document.getElementById("precio-producto").innerHTML = `$${prodData.precio.toLocaleString('es-CL')} <span class="fs-6 text-muted fw-normal">c/u (IVA incluido)</span>`;
+            document.getElementById("img-producto").src = prodData.imagen;
+            document.getElementById("img-producto").alt = prodData.nombre;
+
+            // Asigna dinámicamente la función para agregar este producto específico al carrito
+            const btnAgregar = document.getElementById("btn-agregar-detalle");
+            btnAgregar.setAttribute("onclick", `agregarAlCarrito('${prodData.nombre}', ${prodData.precio})`);
+        });
+    </script>
+</body>
+</html>
